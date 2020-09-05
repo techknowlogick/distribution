@@ -93,7 +93,7 @@ func init() {
 			defaultMultipartCopyThresholdSize,
 			rootDirectory,
 			storageClass,
-			driverName + "-test",
+			DriverName + "-test",
 			objectACL,
 			sessionToken,
 		}

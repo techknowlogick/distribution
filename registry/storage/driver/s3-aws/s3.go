@@ -43,7 +43,8 @@ import (
 	"github.com/docker/distribution/registry/storage/driver/factory"
 )
 
-const driverName = "s3aws"
+// DriverName defines the slug of the driver
+const DriverName = "s3aws"
 
 // minChunkSize defines the minimum multipart upload chunk size
 // S3 API requires multipart upload chunks to be at least 5MB
@@ -127,7 +128,7 @@ func init() {
 
 	// Register this as the default s3 driver in addition to s3aws
 	factory.Register("s3", &s3DriverFactory{})
-	factory.Register(driverName, &s3DriverFactory{})
+	factory.Register(DriverName, &s3DriverFactory{})
 }
 
 // s3DriverFactory implements the factory.StorageDriverFactory interface
@@ -501,7 +502,7 @@ func New(params DriverParameters) (*Driver, error) {
 // Implement the storagedriver.StorageDriver interface
 
 func (d *driver) Name() string {
-	return driverName
+	return DriverName
 }
 
 // GetContent retrieves the content stored at "path" as a []byte.
